@@ -1,0 +1,21 @@
+{
+  "name": "RoundTripAllImages",
+  "source": [
+      "/source/**/*.png",
+      "/source/**/*.jpeg",
+      "/source/**/*.jpg",
+      "/source/**/*.bmp",
+      "/source/**/*.gif"
+    ],
+  "actions": [
+    {
+      "$type": "DebugSave",
+      "output": "output/@(Model.FilePath.Substring(7)).png"
+    },
+    {
+      "$type": "Compare",
+      "source": "expected/@(Model.FilePath.Substring(7)).png",
+      "threshold": 0.01
+    }
+  ]
+}
